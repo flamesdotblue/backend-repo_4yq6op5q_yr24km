@@ -41,6 +41,19 @@ class Product(BaseModel):
 # Add your own schemas here:
 # --------------------------------------------------
 
+class Theme(BaseModel):
+    """
+    Theme customization schema
+    Collection name: "theme"
+    """
+    name: str = Field(..., description="Theme name")
+    primary: str = Field("#4f46e5", description="Primary color (hex)")
+    background_from: str = Field("#ffffff", description="Background gradient start (hex)")
+    background_to: str = Field("#f5f3ff", description="Background gradient end (hex)")
+    text: str = Field("#111827", description="Primary text color (hex)")
+    mode: str = Field("light", description="Light or dark mode")
+    font: Optional[str] = Field("Inter", description="Preferred font family")
+
 # Note: The Flames database viewer will automatically:
 # 1. Read these schemas from GET /schema endpoint
 # 2. Use them for document validation when creating/editing
